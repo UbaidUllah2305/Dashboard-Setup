@@ -7,6 +7,7 @@ import {
   BellRing,
   Building2,
   ChevronDown,
+  Home,
   LineChart,
   Package2,
   Settings,
@@ -44,6 +45,11 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const mainNavigation = [
+  {
+    title: "Dashboard",
+    href: "/",
+    icon: Home,
+  },
   {
     title: "Audience",
     href: "/audience",

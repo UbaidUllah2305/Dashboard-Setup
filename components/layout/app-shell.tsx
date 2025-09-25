@@ -9,12 +9,16 @@ import { AppNavbar } from "@/components/layout/app-navbar"
 export function AppShell({ children }: { children: ReactNode }) {
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen w-full bg-background text-foreground">
+      <div className="flex h-screen w-full bg-background text-foreground">
         <AppSidebar />
-        <SidebarInset className="flex-1 overflow-hidden">
+        <SidebarInset className="flex flex-1 flex-col min-h-0">
           <AppNavbar />
-          <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-6">
-            {children}
+          <div className="flex-1 overflow-y-auto overflow-x-hidden">
+            <main className="min-h-full">
+              <div className="flex flex-col gap-6 p-6">
+                {children}
+              </div>
+            </main>
           </div>
         </SidebarInset>
       </div>

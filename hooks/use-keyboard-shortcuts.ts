@@ -36,6 +36,19 @@ export function useKeyboardShortcuts() {
             event.preventDefault()
             router.push('/')
             break
+          case '0':
+            event.preventDefault()
+            router.push('/')
+            break
+          case 'f':
+            event.preventDefault()
+            // Toggle fullscreen
+            if (!document.fullscreenElement) {
+              document.documentElement.requestFullscreen()
+            } else {
+              document.exitFullscreen()
+            }
+            break
         }
       }
 
@@ -44,7 +57,16 @@ export function useKeyboardShortcuts() {
         case '?':
           event.preventDefault()
           // Could show keyboard shortcuts help modal
-          console.log('Keyboard shortcuts: Cmd+1-4 for navigation, Cmd+H for home, Cmd+B for sidebar')
+          console.log('Keyboard shortcuts: Cmd+0/H for dashboard, Cmd+1-4 for navigation, Cmd+B for sidebar, Cmd+F for fullscreen')
+          break
+        case 'F11':
+          event.preventDefault()
+          // F11 for fullscreen (standard browser shortcut)
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen()
+          } else {
+            document.exitFullscreen()
+          }
           break
       }
     }

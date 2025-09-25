@@ -7,8 +7,12 @@ import {
   LogIn,
   LogOut,
   RefreshCcw,
+  Maximize,
+  Minimize,
+  Home,
 } from "lucide-react"
 
+import Link from "next/link"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import {
@@ -26,6 +30,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 import { useAuth } from "@/hooks/use-auth"
+import { useFullscreen } from "@/hooks/use-fullscreen"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/layout/theme-toggle"
 
@@ -38,6 +43,7 @@ export function AppNavbar() {
   const pathname = usePathname()
   const { user, isAuthenticated, isLoading, error, session, login, logout, refresh } =
     useAuth()
+  const { isFullscreen, toggleFullscreen } = useFullscreen()
 
   const initials = useMemo(() => user?.name?.match(/\b\w/g)?.join("") ?? "AV", [
     user,
@@ -49,15 +55,39 @@ export function AppNavbar() {
         <div className="flex flex-1 items-center gap-3">
           <SidebarTrigger className="md:hidden" />
           <SidebarTrigger className="hidden md:inline-flex" />
+          
+          {/* Home/Logo Button */}
+          <Button
+            variant="ghost" 
+            size="sm"
+            asChild
+            className="gap-2 px-2"
+          >
+            <Link href="/">
+              <Home className="size-4" />
+              <span className="hidden sm:inline-block">Dashboard</span>
+            </Link>
+          </Button>
+          
+          {/* Breadcrumb */}
           <div className="hidden md:block">
-            <span className="text-sm font-medium">
-              {pathname === "/" ? "Dashboard" : pathname.replace(/^\//, "").split("/").map((segment: string) => 
+            <span className="text-sm font-medium text-muted-foreground">
+              {pathname === "/" ? "" : pathname.replace(/^\//, "").split("/").map((segment: string) => 
                 segment.charAt(0).toUpperCase() + segment.slice(1)
               ).join(" › ")}
             </span>
           </div>
         </div>
         <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleFullscreen}
+            className="size-8"
+            aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+          >
+            {isFullscreen ? <Minimize className="size-4" /> : <Maximize className="size-4" />}
+          </Button>
           <ThemeToggle />
           <SessionStatus status={session.status} />
           <AuthMenu

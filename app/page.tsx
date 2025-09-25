@@ -84,6 +84,8 @@ export default function Home() {
       </div>
 
       <AuthSummary />
+      
+      <ExtraContent />
     </AppShell>
   )
 }
@@ -92,7 +94,7 @@ function AuthSummary() {
   const { isAuthenticated, user, session, isLoading, error, refresh } = useAuth()
 
   return (
-    <Card className="border-border/60">
+    <><Card className="border-border/60">
       <CardHeader>
         <CardTitle>Authentication status</CardTitle>
         <CardDescription>
@@ -105,8 +107,7 @@ function AuthSummary() {
           <StatusItem label="Session state" value={session.status} />
           <StatusItem
             label="User"
-            value={user ? `${user.name} (${user.email})` : "Anonymous"}
-          />
+            value={user ? `${user.name} (${user.email})` : "Anonymous"} />
         </div>
         <div className="rounded-lg border border-dashed border-border bg-muted/40 p-4 text-sm">
           <p className="font-medium">Quick tips</p>
@@ -115,7 +116,8 @@ function AuthSummary() {
             <li>• Refresh extends the current session tokens</li>
             <li>• Toggle sidebar with Cmd+B (⌘+B) or click the menu button</li>
             <li>• Switch between light and dark themes from the navbar</li>
-            <li>• Press ? for keyboard shortcuts or Cmd+1-4 for quick navigation</li>
+            <li>• Enter fullscreen mode with Cmd+F (⌘+F) or click fullscreen button</li>
+            <li>• Press ? for keyboard shortcuts or Cmd+0/H for home, Cmd+1-4 for navigation</li>
           </ul>
           {error ? (
             <p className="text-destructive mt-3 text-xs font-medium">{error}</p>
@@ -131,7 +133,125 @@ function AuthSummary() {
           <ArrowUpRight className="ml-2 size-4" />
         </Button>
       </CardFooter>
-    </Card>
+    </Card><Card className="border-border/60">
+        <CardHeader>
+          <CardTitle>Authentication status</CardTitle>
+          <CardDescription>
+            Reusable Redux Toolkit hooks keep auth state in sync across the app.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-4">
+            <StatusItem label="Signed in" value={isAuthenticated ? "Yes" : "No"} />
+            <StatusItem label="Session state" value={session.status} />
+            <StatusItem
+              label="User"
+              value={user ? `${user.name} (${user.email})` : "Anonymous"} />
+          </div>
+          <div className="rounded-lg border border-dashed border-border bg-muted/40 p-4 text-sm">
+            <p className="font-medium">Quick tips</p>
+            <ul className="mt-2 space-y-1 text-muted-foreground">
+              <li>• Use the avatar menu to simulate sign-in</li>
+              <li>• Refresh extends the current session tokens</li>
+              <li>• Toggle sidebar with Cmd+B (⌘+B) or click the menu button</li>
+              <li>• Switch between light and dark themes from the navbar</li>
+              <li>• Enter fullscreen mode with Cmd+F (⌘+F) or click fullscreen button</li>
+              <li>• Press ? for keyboard shortcuts or Cmd+0/H for home, Cmd+1-4 for navigation</li>
+            </ul>
+            {error ? (
+              <p className="text-destructive mt-3 text-xs font-medium">{error}</p>
+            ) : null}
+          </div>
+        </CardContent>
+        <CardFooter className="flex items-center justify-between">
+          <p className="text-sm text-muted-foreground">
+            Last refreshed: {session.credentials?.expiresAt ?? "not started"}
+          </p>
+          <Button onClick={() => refresh()} size="sm" disabled={isLoading}>
+            {isLoading ? "Refreshing..." : "Refresh session"}
+            <ArrowUpRight className="ml-2 size-4" />
+          </Button>
+        </CardFooter>
+      </Card><Card className="border-border/60">
+        <CardHeader>
+          <CardTitle>Authentication status</CardTitle>
+          <CardDescription>
+            Reusable Redux Toolkit hooks keep auth state in sync across the app.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-4">
+            <StatusItem label="Signed in" value={isAuthenticated ? "Yes" : "No"} />
+            <StatusItem label="Session state" value={session.status} />
+            <StatusItem
+              label="User"
+              value={user ? `${user.name} (${user.email})` : "Anonymous"} />
+          </div>
+          <div className="rounded-lg border border-dashed border-border bg-muted/40 p-4 text-sm">
+            <p className="font-medium">Quick tips</p>
+            <ul className="mt-2 space-y-1 text-muted-foreground">
+              <li>• Use the avatar menu to simulate sign-in</li>
+              <li>• Refresh extends the current session tokens</li>
+              <li>• Toggle sidebar with Cmd+B (⌘+B) or click the menu button</li>
+              <li>• Switch between light and dark themes from the navbar</li>
+              <li>• Enter fullscreen mode with Cmd+F (⌘+F) or click fullscreen button</li>
+              <li>• Press ? for keyboard shortcuts or Cmd+0/H for home, Cmd+1-4 for navigation</li>
+            </ul>
+            {error ? (
+              <p className="text-destructive mt-3 text-xs font-medium">{error}</p>
+            ) : null}
+          </div>
+        </CardContent>
+        <CardFooter className="flex items-center justify-between">
+          <p className="text-sm text-muted-foreground">
+            Last refreshed: {session.credentials?.expiresAt ?? "not started"}
+          </p>
+          <Button onClick={() => refresh()} size="sm" disabled={isLoading}>
+            {isLoading ? "Refreshing..." : "Refresh session"}
+            <ArrowUpRight className="ml-2 size-4" />
+          </Button>
+        </CardFooter>
+      </Card><Card className="border-border/60">
+        <CardHeader>
+          <CardTitle>Authentication status</CardTitle>
+          <CardDescription>
+            Reusable Redux Toolkit hooks keep auth state in sync across the app.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-4">
+            <StatusItem label="Signed in" value={isAuthenticated ? "Yes" : "No"} />
+            <StatusItem label="Session state" value={session.status} />
+            <StatusItem
+              label="User"
+              value={user ? `${user.name} (${user.email})` : "Anonymous"} />
+          </div>
+          <div className="rounded-lg border border-dashed border-border bg-muted/40 p-4 text-sm">
+            <p className="font-medium">Quick tips</p>
+            <ul className="mt-2 space-y-1 text-muted-foreground">
+              <li>• Use the avatar menu to simulate sign-in</li>
+              <li>• Refresh extends the current session tokens</li>
+              <li>• Toggle sidebar with Cmd+B (⌘+B) or click the menu button</li>
+              <li>• Switch between light and dark themes from the navbar</li>
+              <li>• Enter fullscreen mode with Cmd+F (⌘+F) or click fullscreen button</li>
+              <li>• Press ? for keyboard shortcuts or Cmd+0/H for home, Cmd+1-4 for navigation</li>
+            </ul>
+            {error ? (
+              <p className="text-destructive mt-3 text-xs font-medium">{error}</p>
+            ) : null}
+          </div>
+        </CardContent>
+        <CardFooter className="flex items-center justify-between">
+          <p className="text-sm text-muted-foreground">
+            Last refreshed: {session.credentials?.expiresAt ?? "not started"}
+          </p>
+          <Button onClick={() => refresh()} size="sm" disabled={isLoading}>
+            {isLoading ? "Refreshing..." : "Refresh session"}
+            <ArrowUpRight className="ml-2 size-4" />
+          </Button>
+        </CardFooter>
+      </Card></>
+    
   )
 }
 
@@ -143,7 +263,27 @@ function StatusItem({ label, value }: { label: string; value: string }) {
       </span>
       <span className="text-sm font-semibold text-foreground">{value}</span>
     </div>
+    
   )
 }
+
+// Add extra content for scroll testing
+const ExtraContent = () => (
+  <div className="space-y-6">
+    {Array.from({ length: 20 }, (_, i) => (
+      <Card key={i} className="p-4">
+        <CardHeader>
+          <CardTitle>Sample Card {i + 1}</CardTitle>
+          <CardDescription>
+            This is sample content to test scrolling behavior. The navbar should remain fixed at the top while this content scrolls.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+)
 
 

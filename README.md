@@ -176,6 +176,7 @@ npm start
 
 ### Navigation
 - **Sidebar Toggle**: Cmd+B (⌘+B) or click hamburger menu
+- **Fullscreen Mode**: Cmd+F (⌘+F) or click fullscreen button in navbar
 - **Quick Navigation**: Cmd+1-4 for main sections
 - **Keyboard Help**: Press ? to see all shortcuts
 - **Category Expansion**: Click arrows to expand/collapse catalog sections
@@ -196,11 +197,13 @@ npm start
 | Shortcut | Action |
 |----------|--------|
 | `Cmd + B` | Toggle sidebar |
+| `Cmd + F` | Toggle fullscreen mode |
+| `F11` | Toggle fullscreen (browser standard) |
+| `Cmd + 0` / `Cmd + H` | Navigate to Dashboard |
 | `Cmd + 1` | Navigate to Audience |
 | `Cmd + 2` | Navigate to Security |
 | `Cmd + 3` | Navigate to Engagement |
 | `Cmd + 4` | Navigate to Analytics |
-| `Cmd + H` | Navigate to Dashboard |
 | `?` | Show keyboard shortcuts |
 
 ## 🚦 Scripts
