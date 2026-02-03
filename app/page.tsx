@@ -7,7 +7,7 @@ import {
   Users as UsersIcon,
 } from "lucide-react"
 
-import { AppShell } from "@/components/layout/app-shell"
+import { AppShellClient } from "@/components/layout/app-shell-client"
 import {
   Card,
   CardContent,
@@ -48,7 +48,7 @@ export default function Home() {
   useKeyboardShortcuts()
   
   return (
-    <AppShell>
+    <AppShellClient>
       <div className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
         <p className="text-muted-foreground">
@@ -86,7 +86,7 @@ export default function Home() {
       <AuthSummary />
       
       <ExtraContent />
-    </AppShell>
+    </AppShellClient>
   )
 }
 

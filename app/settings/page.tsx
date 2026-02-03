@@ -9,7 +9,7 @@ import {
   ArrowRight 
 } from "lucide-react"
 
-import { AppShell } from "@/components/layout/app-shell"
+import { AppShellClient } from "@/components/layout/app-shell-client"
 import {
   Card,
   CardContent,
@@ -47,7 +47,7 @@ const settingsPages = [
 
 export default function SettingsPage() {
   return (
-    <AppShell>
+    <AppShellClient>
       <div className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight">Settings</h1>
         <p className="text-muted-foreground">
@@ -77,6 +77,6 @@ export default function SettingsPage() {
           </Card>
         ))}
       </div>
-    </AppShell>
+    </AppShellClient>
   )
 }

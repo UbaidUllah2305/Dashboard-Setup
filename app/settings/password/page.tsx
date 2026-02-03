@@ -1,6 +1,6 @@
 "use client"
 
-import { AppShell } from "@/components/layout/app-shell"
+import { AppShellClient } from "@/components/layout/app-shell-client"
 import {
   Card,
   CardContent,
@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label"
 
 export default function PasswordSettings() {
   return (
-    <AppShell>
+    <AppShellClient>
       <div className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight">Change Password</h1>
         <p className="text-muted-foreground">
@@ -60,6 +60,6 @@ export default function PasswordSettings() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </AppShellClient>
   )
 }

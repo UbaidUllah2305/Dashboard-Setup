@@ -1,6 +1,6 @@
 "use client"
 
-import { AppShell } from "@/components/layout/app-shell"
+import { AppShellClient } from "@/components/layout/app-shell-client"
 import {
   Card,
   CardContent,
@@ -15,7 +15,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default function ProfileSettings() {
   return (
-    <AppShell>
+    <AppShellClient>
       <div className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight">Profile Settings</h1>
         <p className="text-muted-foreground">
@@ -81,6 +81,6 @@ export default function ProfileSettings() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </AppShellClient>
   )
 }

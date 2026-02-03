@@ -1,6 +1,6 @@
 "use client"
 
-import { AppShell } from "@/components/layout/app-shell"
+import { AppShellClient } from "@/components/layout/app-shell-client"
 import {
   Card,
   CardContent,
@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label"
 
 export default function PreferencesSettings() {
   return (
-    <AppShell>
+    <AppShellClient>
       <div className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight">Preferences</h1>
         <p className="text-muted-foreground">
@@ -72,6 +72,6 @@ export default function PreferencesSettings() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </AppShellClient>
   )
 }
